@@ -62,9 +62,11 @@ while True:
         if (heading < 0):
             heading += 360
             
-        print(str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
+        timeStr = time.time()
+            
+        print(str(timeStr) + " " + str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
               str(angle_x) + " " + str(heading) + " " + str(acc_x) + " " + str(acc_y) + " " + str(acc_z))
-        outf.write(str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
+        outf.write(str(timeStr) + " " + str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
               str(angle_x) + " " + str(heading) + " " + str(acc_x) + " " + str(acc_y) + " " + str(acc_z) + "\n")
         outf.flush()
 
