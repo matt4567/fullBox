@@ -56,12 +56,13 @@ while True:
         
 #	print('Angular momenturm (rad/s): {}'.format(sensorGyro.gyro))
 #	print('Magnetometer(gauss): ({0:10.3f}, {1:10.3f}, {2:10.3f}) '.format(mag_x, mag_y, mag_z))
-        if (mag_y != 0):
+#        if (mag_y != 0):
 #		heading = (180/numpy.pi) * numpy.arctan2(numpy.array(mag_x),numpy.array(mag_y))
-            heading = (180/numpy.pi) * numpy.arctan2(mag_y, mag_x)
+        heading = (180/numpy.pi) * numpy.arctan2(mag_y, mag_x)
         if (heading < 0):
             heading += 360
-            
+#        print(heading, mag_y, mag_x)
+#        time.sleep(1)    
         timeStr = time.time()
             
         print(str(timeStr) + " " + str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
