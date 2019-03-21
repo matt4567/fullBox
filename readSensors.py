@@ -13,7 +13,7 @@ outf.truncate(0)
 I2C = busio.I2C(board.SCL, board.SDA)
 sensorGyro = adafruit_l3gd20.L3GD20_I2C(I2C)
 sensorCompass = adafruit_lsm303.LSM303(I2C)
-sensorCompass.mag_rate = adafruit_lsm303.MAGRATE_3_0
+sensorCompass.mag_rate = adafruit_lsm303.MAGRATE_30
 
 accsX = []
 accsY = []
