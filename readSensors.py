@@ -5,6 +5,7 @@ import board
 import busio
 import adafruit_l3gd20
 import adafruit_lsm303
+import matplotlib.pyplot as plt
 
 outf = open('output.txt', 'a')
 outf.truncate(0)
@@ -18,9 +19,19 @@ sensorCompass.mag_rate = adafruit_lsm303.MAGRATE_30
 accsX = []
 accsY = []
 accsZ = []
+magX = []
+magY = []
 counter = 0
 while True:
         mag_x, mag_y, mag_z = sensorCompass.magnetic
+    #    print(mag_x, mag_y, mag_z)
+   #     print((180/numpy.pi) * numpy.arctan2(mag_y, mag_x))
+    #    magX.append(mag_x)
+    #    magY.append(mag_y)
+     #   time.sleep(1)
+  #      counter += 1
+ #       continue
+    
         gyro_x, gyro_y, gyro_z = sensorGyro.gyro
         acc_x, acc_y, acc_z = sensorCompass.acceleration
        # acc_x += 0.52
@@ -65,10 +76,14 @@ while True:
 #        time.sleep(1)    
         timeStr = time.time()
             
-        print(str(timeStr) + " " + str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
+        print(str(timeStr) + " " + str(mag_y) + " " + str(mag_x) + " " + str(mag_z) + " " + str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
               str(angle_x) + " " + str(heading) + " " + str(acc_x) + " " + str(acc_y) + " " + str(acc_z))
-        outf.write(str(timeStr) + " " + str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
+        outf.write(str(timeStr) + " " + str(mag_y) + " " + str(mag_x) + " " + str(mag_z) + " " + str(gyro_x) + " " + str(gyro_y)+ " " + str(gyro_z) + " " + str(angle_y) + " " +
               str(angle_x) + " " + str(heading) + " " + str(acc_x) + " " + str(acc_y) + " " + str(acc_z) + "\n")
         outf.flush()
 
+#plt.plot(magX, label = "x")
+#plt.plot(magY, label="y")
+#plt.legend()
+#plt.show()
 #print(numpy.mean(accsX), numpy.mean(accsY), numpy.mean(accsZ))
